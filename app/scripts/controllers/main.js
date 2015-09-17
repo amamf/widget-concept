@@ -8,10 +8,10 @@
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (messageBus) {
+    var vm = this;
+
+    messageBus.subscribe('region.changed', function(e, region) {
+       vm.region = region;
+     });
   });

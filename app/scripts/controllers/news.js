@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name widgetConceptApp.controller:AboutCtrl
+ * @name widgetConceptApp.controller:NewsCtrl
  * @description
- * # AboutCtrl
+ * # NewsCtrl
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
+  .controller('NewsCtrl', function ($scope) {
+    $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
