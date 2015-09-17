@@ -9,10 +9,13 @@
 angular.module('widgetConceptApp.widgets')
   .directive('xfNewsWidget', function () {
     return {
-      template: '<div></div>',
+      templateUrl: '/views/common/xf-news-widget.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the xfNewsWidget directive');
+      scope: {
+
+      },
+      controller: function($scope) {
+
       }
     };
   });

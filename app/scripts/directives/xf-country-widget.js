@@ -9,8 +9,11 @@
 angular.module('widgetConceptApp.widgets')
   .directive('xfCountryWidget', function () {
     return {
-      template: '<div></div>',
+      templateUrl: '/views/common/xf-country-widget.html',
       restrict: 'E',
+      scope: {
+
+      },
       link: function postLink(scope, element, attrs) {
         element.text('this is the xfCountryWidget directive');
       }
