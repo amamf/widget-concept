@@ -8,10 +8,20 @@
  *
  * Main module of the application.
  */
+angular.module('widgetConceptApp.communication', []);
+angular.module('widgetConceptApp.widgets', []);
+angular.module('widgetConceptApp.data', []);
+angular.module('widgetConceptApp.news', ['widgetConceptApp.data', 'widgetConceptApp.communication']);
+
+
 angular
   .module('widgetConceptApp', [
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'widgetConceptApp.communication',
+    'widgetConceptApp.widgets',
+    'widgetConceptApp.data',
+    'widgetConceptApp.news'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -21,9 +31,7 @@ angular
         controllerAs: 'main'
       })
       .when('/news', {
-        templateUrl: 'views/news.html',
-        controller: 'NewsCtrl',
-        controllerAs: 'news'
+        templateUrl: 'views/news.html'
       })
       .otherwise({
         redirectTo: '/'

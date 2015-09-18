@@ -7,7 +7,7 @@
  * # newsProvider
  * Factory in the widgetConceptApp.
  */
-angular.module('widgetConceptApp.providers')
+angular.module('widgetConceptApp')
   .factory('newsProvider', function (newsRepository) {
     return {
       getNews: function (params) {

@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <xf-news-widget
-        xf-options="newsWidget.options"
-        xf-data-provider="newsWidget.dataProvider"
-        xf-data-provider-options="newsWidget.dataProviderOptions"
-        xf-events="{ onDataLoading: onNewsLoading, onDataLoaded: onNewsLoaded }"></xf-news-widget>
+    <div class="col-md-6" ng-controller="NewsCtrl as news">
+      <xf-news-widget xf-options="news.newsWidgetOptions"></xf-news-widget>
     </div>
-    <div class="col-md-6">Regions Widget goes here</div>
+    <div class="col-md-6" ng-controller="CountryCtrl as country">
+      <xf-country-widget xf-options="country.countryWidgetOptions"></xf-country-widget>
+    </div>
   </div>
 </div>

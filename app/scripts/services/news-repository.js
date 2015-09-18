@@ -7,7 +7,7 @@
  * # newsRepository
  * Factory in the widgetConceptApp.
  */
-angular.module('widgetConceptApp.rest')
+angular.module('widgetConceptApp.data')
   .factory('newsRepository', function ($q) {
     var allNews = [
       { title: 'Title A', description: 'Description A', region: 'USA' },

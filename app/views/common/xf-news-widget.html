@@ -1,10 +1,10 @@
 <div class="xf-news-widget">
-  <div class="xf-news-widget-header" ng-bind="header"></div>
+  <div class="xf-news-widget-header" ng-if="options.header.display" ng-bind="options.header.text"></div>
   <div class="xf-news-widget-body">
     <ul class="xf-news-widget-items">
       <li class="xf-news-widget-item" ng-repeat="item in news">
-        <h2 class="xf-news-widget-item-title" ng-bind="item.title"></h2>
-        <p class="xf-news-widget-item-description" ng-bind="item.description"></p>
+        <div class="xf-news-widget-item-title" ng-bind="item.title"></div>
+        <div class="xf-news-widget-item-description" ng-bind="item.description"></div>
       </li>
     </ul>
   </div>

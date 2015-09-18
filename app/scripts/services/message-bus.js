@@ -7,7 +7,7 @@
  * # messageBus
  * Factory in the widgetConceptApp.
  */
-angular.module('widgetConceptApp')
+angular.module('widgetConceptApp.communication')
   .factory('messageBus', function ($rootScope) {
     return {
       subscribe: function (messageName, callback) {
