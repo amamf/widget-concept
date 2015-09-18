@@ -9,7 +9,7 @@
 angular.module('widgetConceptApp.widgets')
   .directive('xfCountryWidget', function () {
     return {
-      templateUrl: '/views/common/xf-country-widget.html',
+      templateUrl: 'views/common/xf-country-widget.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'
