@@ -8,6 +8,11 @@ body {
   margin-bottom: 10px;
 }
 
+.news-link {
+  padding: 20px;
+  font-size: 21px;
+}
+
 /* xf-news-widget */
 .xf-news-widget-header {
   font-size: 24px;

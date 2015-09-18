@@ -15,8 +15,8 @@ angular.module('widgetConceptApp.widgets')
         options: '=xfOptions'
       },
       require: 'ngModel',
-      link: function(scope, element, attrs, ngModelCtrl) {
-        //NOTE: we can't use controller, controllerAs and bindToController options here because we need to be able to use ngModelCtrl
+      link: function(scope, element, attrs, ngModel) {
+        //NOTE: we can't use controller, controllerAs and bindToController options here because we need to be able to use ngModel
         var vm = scope.vm = angular.extend({}, scope); // we are emulating the approach that implies using controllerAs syntax
 
         var options = vm.options;
@@ -31,8 +31,12 @@ angular.module('widgetConceptApp.widgets')
 
           if(country !== selectedCountry) {
             selectedCountry = country;
-            ngModelCtrl.$setViewValue(country);
+            ngModel.$setViewValue(country);
           }
+        };
+
+        ngModel.$render = function() {
+          selectedCountry = ngModel.$modelValue;
         };
 
         function loadData() {

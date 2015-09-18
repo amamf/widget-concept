@@ -8,16 +8,11 @@
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp')
-  .controller('RegionCtrl', function (messageBus, regionsRepository) {
-    var selectedRegion;
+  .controller('RegionCtrl', function (regionModel, regionsRepository) {
 
     this.selectedRegion = function(region) {
-      if(!arguments.length) { return selectedRegion; }
-
-      if(region !== selectedRegion) {
-        selectedRegion = region;
-        messageBus.publish('region.changed', region);
-      }
+      if(!arguments.length) { return regionModel.region; }
+      regionModel.region = region;
     };
 
     this.countryWidgetOptions = {

@@ -8,7 +8,7 @@
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp.news')
-  .controller('NewsCtrl', function ($scope, messageBus, newsRepository) {
+  .controller('NewsCtrl', function ($scope, observer, messageBus, regionModel, newsRepository) {
     var newsWidgetOptions = this.newsWidgetOptions = {
       header: {
         display: true,
@@ -18,7 +18,8 @@ angular.module('widgetConceptApp.news')
         source: newsRepository,
         params: {
           skip: 0,
-          take: 3
+          take: 3,
+          region: regionModel.region
         }
       },
       events: {
@@ -31,7 +32,9 @@ angular.module('widgetConceptApp.news')
       }
     };
 
-    messageBus.subscribe('region.changed', function(e, region) {
+    observer.subscribe(function() {
+      return regionModel.region;
+    }, function(region) {
       newsWidgetOptions.data.params.region = region;
     });
   });

@@ -8,10 +8,17 @@
  *
  * Main module of the application.
  */
+angular.module('widgetConceptApp.common', []);
 angular.module('widgetConceptApp.communication', []);
+angular.module('widgetConceptApp.models', []);
 angular.module('widgetConceptApp.widgets', []);
 angular.module('widgetConceptApp.data', []);
-angular.module('widgetConceptApp.news', ['widgetConceptApp.data', 'widgetConceptApp.communication']);
+angular.module('widgetConceptApp.news', [
+  'widgetConceptApp.data',
+  'widgetConceptApp.communication',
+  'widgetConceptApp.models',
+  'widgetConceptApp.common'
+]);
 
 
 angular

@@ -8,10 +8,6 @@
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp')
-  .controller('MainCtrl', function (messageBus) {
-    var vm = this;
+  .controller('MainCtrl', function () {
 
-    messageBus.subscribe('region.changed', function(e, region) {
-       vm.region = region;
-     });
   });
