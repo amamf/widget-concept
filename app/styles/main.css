@@ -40,5 +40,8 @@ body {
   font-weight: bold;
   background-color: #87CEEB;
   padding: 2px 5px;
+}
 
+.xf-country-widget-body {
+  padding: 2px 5px;
 }

@@ -1,6 +1,9 @@
 <div class="xf-country-widget">
-  <div class="xf-country-widget-header" ng-if="options.header.display" ng-bind="options.header.text"></div>
+  <div class="xf-country-widget-header" ng-if="vm.options.header.display" ng-bind="vm.options.header.text"></div>
   <div class="xf-country-widget-body">
-
+    <label for="xf-country" ng-if="vm.options.label.display" ng-bind="vm.options.label.text"></label>
+    <select name="xf-country" id="xf-country" ng-model="vm.selectedCountry" ng-model-options="{ getterSetter: true }">
+      <option value="{{country}}" ng-repeat="country in vm.countries" ng-bind="country"></option>
+    </select>
   </div>
 </div>

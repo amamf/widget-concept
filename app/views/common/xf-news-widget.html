@@ -1,8 +1,8 @@
 <div class="xf-news-widget">
-  <div class="xf-news-widget-header" ng-if="options.header.display" ng-bind="options.header.text"></div>
+  <div class="xf-news-widget-header" ng-if="vm.options.header.display" ng-bind="vm.options.header.text"></div>
   <div class="xf-news-widget-body">
     <ul class="xf-news-widget-items">
-      <li class="xf-news-widget-item" ng-repeat="item in news">
+      <li class="xf-news-widget-item" ng-repeat="item in vm.news">
         <div class="xf-news-widget-item-title" ng-bind="item.title"></div>
         <div class="xf-news-widget-item-description" ng-bind="item.description"></div>
       </li>

@@ -10,18 +10,18 @@
 angular.module('widgetConceptApp.data')
   .factory('newsRepository', function ($q) {
     var allNews = [
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'USA' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
-      { title: 'Title A', description: 'Description A', region: 'Belarus' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title A', description: 'Description A USA', region: 'USA' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
+      { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
     ];
 
     return {

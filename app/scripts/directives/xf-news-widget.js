@@ -8,32 +8,32 @@
  */
 angular.module('widgetConceptApp.widgets')
   .directive('xfNewsWidget', function () {
-
     return {
       templateUrl: '/views/common/xf-news-widget.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'
       },
-      controller: function($scope) {
-        var options = $scope.options,
-            dataSource = options.data && options.data.source,
-            events = options.events;
+      link: function(scope) {
+        var vm = scope.vm = angular.extend({}, scope); // we are emulating the approach that implies using controllerAs syntax
+
+        var options = vm.options;
+        var dataSource = options.data && options.data.source;
+        var events = options.events;
 
         validateOptions();
-
         loadData();
 
-        $scope.$watch('options.data.params', function(newValue, oldValue) {
+        scope.$watch('vm.options.data.params', function(newValue, oldValue) {
           if(newValue === oldValue) { return; }
           loadData();
-        });
+        }, true);
 
         function loadData() {
           onDataLoading();
 
           dataSource.getNews(options.data.params).then(function(news) {
-            $scope.news = news;
+            vm.news = news;
           }).finally(function() {
             onDataLoaded();
           });
@@ -49,6 +49,7 @@ angular.module('widgetConceptApp.widgets')
           }
         }
 
+        // an example of how we could implement event model for the widget
         function onDataLoading() {
           if(angular.isFunction(events.onDataLoading)) {
             events.onDataLoading();
