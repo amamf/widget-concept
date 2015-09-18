@@ -8,7 +8,7 @@
  * Controller of the widgetConceptApp
  */
 angular.module('widgetConceptApp.news')
-  .controller('NewsCtrl', function ($scope, observer, messageBus, regionModel, newsRepository) {
+  .controller('NewsCtrl', function (observer, messageBus, regionModel, newsRepository) {
     var newsWidgetOptions = this.newsWidgetOptions = {
       header: {
         display: true,

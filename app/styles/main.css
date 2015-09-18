@@ -3,9 +3,9 @@ body {
 }
 
 .header {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 10px;
+  background: #F8F8FF;
+  padding: 0 15px 10px 15px;
+  margin-bottom: 20px;
 }
 
 .news-link {
@@ -19,10 +19,11 @@ body {
   font-weight: bold;
   background-color: #87CEEB;
   padding: 2px 5px;
+  border-radius: 3px;
 }
 
 .xf-news-widget-body {
-  padding: 2px 5px;
+  padding: 5px;
 }
 
 .xf-news-widget-items {
@@ -45,8 +46,9 @@ body {
   font-weight: bold;
   background-color: #87CEEB;
   padding: 2px 5px;
+  border-radius: 3px;
 }
 
 .xf-country-widget-body {
-  padding: 2px 5px;
+  padding: 5px;
 }

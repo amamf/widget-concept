@@ -19,7 +19,7 @@ angular.module('widgetConceptApp.common')
           throw new Error('observer: callback should be a function');
         }
 
-        $rootScope.$watch(observableGetter, function(newValue, oldValue) {
+        return $rootScope.$watch(observableGetter, function(newValue, oldValue) {
           if(!angular.equals(newValue, oldValue)) {
             callback(newValue, oldValue);
           }
