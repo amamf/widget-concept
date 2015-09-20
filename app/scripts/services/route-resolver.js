@@ -47,7 +47,7 @@ define([], function () {
 
           routeDef.resolve = {
             load: ['$q', '$rootScope', function ($q, $rootScope) {
-              var dependencies = [routeConfig.getControllersDirectory() + path + baseName + '.ctrl.js'];
+              var dependencies = [routeConfig.getControllersDirectory() + path + baseName + '.js'];
               return resolveDependencies($q, $rootScope, dependencies);
             }]
           };

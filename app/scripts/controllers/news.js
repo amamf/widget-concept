@@ -4,8 +4,8 @@ define([
   'app',
   'services/observer',
   'models/region',
-  'controllers/news-list.ctrl',
-  'controllers/region.ctrl'
+  'controllers/news-list',
+  'controllers/region'
 ], function(app) {
   app.register.controller('NewsCtrl', function (observer, regionModel) {
     var vm = this;
