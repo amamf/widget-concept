@@ -24,7 +24,7 @@ define(['services/route-resolver'], function () {
 
     $routeProvider
       .when('/', route.resolve('main'))
-      .when('/news', route.resolve('news', '', 'news'))
+      .when('/news', route.resolve('news', '', 'vm'))
       .otherwise({
         redirectTo: '/'
       });
