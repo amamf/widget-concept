@@ -13,6 +13,10 @@ body {
   font-size: 21px;
 }
 
+.news-title {
+  margin-bottom: 30px;
+}
+
 /* xf-news-widget */
 .xf-news-widget-header {
   font-size: 24px;
