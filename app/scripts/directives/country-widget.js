@@ -1,15 +1,9 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name widgetConceptApp.directive:xfCountryWidget
- * @description
- * # xfCountryWidget
- */
-angular.module('widgetConceptApp.widgets')
-  .directive('xfCountryWidget', function () {
+define(['app'], function(app) {
+  app.register.directive('xfCountryWidget', function () {
     return {
-      templateUrl: 'views/common/xf-country-widget.html',
+      templateUrl: 'views/common/country-widget.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'
@@ -57,4 +51,4 @@ angular.module('widgetConceptApp.widgets')
       }
     };
   });
-
+});

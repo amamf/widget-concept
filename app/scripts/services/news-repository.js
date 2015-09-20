@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name widgetConceptApp.newsRepository
- * @description
- * # newsRepository
- * Factory in the widgetConceptApp.
- */
-angular.module('widgetConceptApp.data')
-  .factory('newsRepository', function ($q) {
+define(['app'], function(app) {
+  app.register.factory('newsRepository', function ($q) {
     var allNews = [
       { title: 'Title A', description: 'Description A USA', region: 'USA' },
       { title: 'Title B', description: 'Description B Belarus', region: 'Belarus' },
@@ -42,3 +35,5 @@ angular.module('widgetConceptApp.data')
       }
     };
   });
+
+});

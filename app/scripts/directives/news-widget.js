@@ -1,15 +1,9 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name widgetConceptApp.directive:xfNewsWidget
- * @description
- * # xfNewsWidget
- */
-angular.module('widgetConceptApp.widgets')
-  .directive('xfNewsWidget', function () {
+define(['app'], function(app) {
+  app.register.directive('xfNewsWidget', function () {
     return {
-      templateUrl: 'views/common/xf-news-widget.html',
+      templateUrl: 'views/common/news-widget.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'
@@ -64,3 +58,4 @@ angular.module('widgetConceptApp.widgets')
       }
     };
   });
+});

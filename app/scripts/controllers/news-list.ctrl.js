@@ -1,14 +1,14 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name widgetConceptApp.controller:NewsCtrl
- * @description
- * # NewsCtrl
- * Controller of the widgetConceptApp
- */
-angular.module('widgetConceptApp.news')
-  .controller('NewsCtrl', function (observer, messageBus, regionModel, newsRepository) {
+define([
+  'app',
+  'models/region',
+  'services/observer',
+  'services/message-bus',
+  'services/news-repository',
+  'directives/news-widget'
+], function(app) {
+  app.register.controller('NewsListCtrl', function (observer, messageBus, regionModel, newsRepository) {
     var newsWidgetOptions = this.newsWidgetOptions = {
       header: {
         display: true,
@@ -38,3 +38,4 @@ angular.module('widgetConceptApp.news')
       newsWidgetOptions.data.params.region = region;
     });
   });
+});

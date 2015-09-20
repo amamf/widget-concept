@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6" ng-controller="NewsCtrl as news">
-      <xf-news-widget xf-options="news.newsWidgetOptions"></xf-news-widget>
+    <div class="col-md-6" ng-controller="NewsListCtrl as newsList">
+      <xf-news-widget xf-options="newsList.newsWidgetOptions"></xf-news-widget>
     </div>
     <div class="col-md-6" ng-controller="RegionCtrl as region">
       <xf-country-widget ng-model="region.selectedRegion" ng-model-options="{ getterSetter:true }" xf-options="region.countryWidgetOptions"></xf-country-widget>

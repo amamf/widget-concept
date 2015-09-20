@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name widgetConceptApp.observer
- * @description
- * # observer
- * Factory in the widgetConceptApp.
- */
-angular.module('widgetConceptApp.common')
-  .factory('observer', function ($rootScope) {
+define(['app'], function(app) {
+  app.factory('observer', function ($rootScope) {
     return {
       subscribe: function (observableGetter, callback) {
         if(!angular.isFunction(observableGetter)) {
@@ -27,3 +20,4 @@ angular.module('widgetConceptApp.common')
       }
     };
   });
+});

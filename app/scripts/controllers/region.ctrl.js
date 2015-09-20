@@ -1,14 +1,12 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name widgetConceptApp.controller:RegionCtrl
- * @description
- * # RegionCtrl
- * Controller of the widgetConceptApp
- */
-angular.module('widgetConceptApp')
-  .controller('RegionCtrl', function (regionModel, regionsRepository) {
+define([
+  'app',
+  'models/region',
+  'services/regions-repository',
+  'directives/country-widget'
+], function(app) {
+  app.register.controller('RegionCtrl', function (regionModel, regionsRepository) {
 
     this.selectedRegion = function(region) {
       if(!arguments.length) { return regionModel.region; }
@@ -31,3 +29,4 @@ angular.module('widgetConceptApp')
       }
     };
   });
+});

@@ -13,6 +13,8 @@
   "globals": {
     "angular": false,
     "_": false,
-    "PathObserver": false
+    "PathObserver": false,
+    "define": false,
+    "require": false
   }
 }

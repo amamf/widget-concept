@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name widgetConceptApp.messageBus
- * @description
- * # messageBus
- * Factory in the widgetConceptApp.
- */
-angular.module('widgetConceptApp.communication')
-  .factory('messageBus', function ($rootScope) {
+define(['app'], function(app) {
+  app.factory('messageBus', function ($rootScope) {
     return {
       subscribe: function (messageName, callback) {
         return $rootScope.$on(messageName, callback);
@@ -18,3 +11,4 @@ angular.module('widgetConceptApp.communication')
       }
     };
   });
+});
