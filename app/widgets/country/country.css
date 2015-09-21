@@ -1,0 +1,11 @@
+.xf-country-widget-header {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #87CEEB;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.xf-country-widget-body {
+  padding: 5px;
+}

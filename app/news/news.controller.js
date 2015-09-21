@@ -2,12 +2,12 @@
 
 define([
   'app',
-  'services/observer',
-  'models/region',
-  'controllers/news-list',
-  'controllers/region'
+  'common/services/observer',
+  'common/models/region',
+  'news/news-list.controller',
+  'news/region.controller'
 ], function(app) {
-  app.register.controller('NewsCtrl', function (observer, regionModel) {
+  app.register.controller('NewsController', function (observer, regionModel) {
     var vm = this;
 
     vm.region = regionModel.region;

@@ -2,13 +2,13 @@
 
 define([
   'app',
-  'models/region',
-  'services/observer',
-  'services/message-bus',
-  'services/news-repository',
-  'directives/news-widget'
+  'common/models/region',
+  'common/services/observer',
+  'common/services/message-bus',
+  'common/services/news-repository',
+  'widgets/news/news.directive'
 ], function(app) {
-  app.register.controller('NewsListCtrl', function (observer, messageBus, regionModel, newsRepository) {
+  app.register.controller('NewsListController', function (observer, messageBus, regionModel, newsRepository) {
     var newsWidgetOptions = this.newsWidgetOptions = {
       header: {
         display: true,

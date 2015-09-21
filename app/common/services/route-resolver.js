@@ -8,8 +8,8 @@ define([], function () {
       };
 
       this.routeConfig = function () {
-        var viewsDirectory = '/views/',
-            controllersDirectory = '/controllers/',
+        var viewsDirectory = '',
+            controllersDirectory = '',
 
         setBaseDirectories = function (viewsDir, controllersDir) {
           viewsDirectory = viewsDir;
@@ -39,7 +39,7 @@ define([], function () {
 
           var routeDef = {};
           routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
-          routeDef.controller = baseName.charAt(0).toUpperCase() + baseName.slice(1) + 'Ctrl';
+          routeDef.controller = baseName.charAt(0).toUpperCase() + baseName.slice(1) + 'Controller';
 
           if (controllerAs)  {
             routeDef.controllerAs = controllerAs;
@@ -47,7 +47,7 @@ define([], function () {
 
           routeDef.resolve = {
             load: ['$q', '$rootScope', function ($q, $rootScope) {
-              var dependencies = [routeConfig.getControllersDirectory() + path + baseName + '.js'];
+              var dependencies = [routeConfig.getControllersDirectory() + path + baseName + '.controller.js'];
               return resolveDependencies($q, $rootScope, dependencies);
             }]
           };
@@ -72,7 +72,7 @@ define([], function () {
 
     };
 
-    var routingModule = angular.module('widgetConceptApp.routing', []);
+    var routingModule = angular.module('widgetConceptApp.services.routing', []);
 
     //Must be a provider since it will be injected into module.config()
     routingModule.provider('routeResolver', routeResolver);

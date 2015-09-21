@@ -2,11 +2,11 @@
 
 define([
   'app',
-  'models/region',
-  'services/regions-repository',
-  'directives/country-widget'
+  'common/models/region',
+  'common/services/regions-repository',
+  'widgets/country/country.directive'
 ], function(app) {
-  app.register.controller('RegionCtrl', function (regionModel, regionsRepository) {
+  app.register.controller('RegionController', function (regionModel, regionsRepository) {
 
     this.selectedRegion = function(region) {
       if(!arguments.length) { return regionModel.region; }

@@ -1,11 +1,11 @@
 'use strict';
 
-define(['services/route-resolver'], function () {
+define(['common/services/route-resolver'], function () {
 
   var app = angular.module('widgetConceptApp', [
     'ngRoute',
     'ngSanitize',
-    'widgetConceptApp.routing'
+    'widgetConceptApp.services.routing'
   ]);
 
   app.config(function ($routeProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
@@ -18,13 +18,11 @@ define(['services/route-resolver'], function () {
       service: $provide.service
     };
 
-    routeResolverProvider.routeConfig.setBaseDirectories('/views/', '/scripts/controllers/');
-
     var route = routeResolverProvider.route;
 
     $routeProvider
-      .when('/', route.resolve('main'))
-      .when('/news', route.resolve('news', '', 'vm'))
+      .when('/', route.resolve('main', 'main/'))
+      .when('/news', route.resolve('news', 'news/', 'vm'))
       .otherwise({
         redirectTo: '/'
       });

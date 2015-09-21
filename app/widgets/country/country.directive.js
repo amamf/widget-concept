@@ -1,9 +1,9 @@
 'use strict';
 
-define(['app'], function(app) {
+define(['app', 'css!widgets/country/country'], function(app) {
   app.register.directive('xfCountryWidget', function () {
     return {
-      templateUrl: 'views/common/country-widget.html',
+      templateUrl: 'widgets/country/country.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'

@@ -1,9 +1,9 @@
 'use strict';
 
-define(['app'], function(app) {
+define(['app', 'css!widgets/news/news'], function(app) {
   app.register.directive('xfNewsWidget', function () {
     return {
-      templateUrl: 'views/common/news-widget.html',
+      templateUrl: 'widgets/news/news.html',
       restrict: 'E',
       scope: {
         options: '=xfOptions'
