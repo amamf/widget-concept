@@ -31,6 +31,17 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    typescript: {
+      base: {
+        src: ['<%= yeoman.app %>/{,*/}*.ts'],
+        dest: '.tmp/scripts/',
+        options: {
+          module: 'amd',
+          target: 'es5'
+        }
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -43,6 +54,10 @@ module.exports = function (grunt) {
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
+      },
+      ts: {
+        files: ['<%= yeoman.app %>/**/*.ts'],
+        tasks: ['typescript']
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
