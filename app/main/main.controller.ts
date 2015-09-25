@@ -1,5 +1,7 @@
 import app = require('app');
 
-app.register.controller('MainController', function () {
-  // just for test purposes
-});
+class MainController {
+  constructor() {}
+}
+
+app.controller('MainController', MainController);

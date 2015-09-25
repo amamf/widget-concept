@@ -2,15 +2,29 @@
 
 import routeResolver = require('common/services/route-resolver');
 
-export var app = angular.module('widgetConceptApp', [
+var app = angular.module('widgetConceptApp', [
   'ngRoute',
   'ngSanitize',
   'widgetConceptApp.services.routing'
 ]);
 
+interface IRegisterFunc {
+  (name: string, component: any) : void
+}
+
+interface IRegistrator {
+  controller: IRegisterFunc;
+  directive: IRegisterFunc;
+  filter: IRegisterFunc;
+  factory: IRegisterFunc;
+  service: IRegisterFunc;
+}
+
+var registrator: IRegistrator;
+
 app.config(function ($routeProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
 
-  app.register = {
+  registrator = {
     controller: $controllerProvider.register,
     directive: $compileProvider.directive,
     filter: $filterProvider.register,
@@ -27,6 +41,8 @@ app.config(function ($routeProvider, routeResolverProvider, $controllerProvider,
       redirectTo: '/'
     });
 });
+
+export = registrator;
 
 
 

@@ -3,11 +3,11 @@
     <h3 class="text-center news-title">Hot news in {{ vm.region }}</h3>
   </div>
    <div class="row">
-    <div class="col-md-6" ng-controller="NewsListController as vm">
-      <xf-news-widget xf-options="vm.newsWidgetOptions"></xf-news-widget>
-    </div>
     <div class="col-md-6" ng-controller="RegionController as vm">
       <xf-country-widget ng-model="vm.selectedRegion" ng-model-options="{ getterSetter:true }" xf-options="vm.countryWidgetOptions"></xf-country-widget>
+    </div>
+    <div class="col-md-6" ng-controller="NewsListController as vm">
+      <xf-news-widget xf-options="vm.newsWidgetOptions"></xf-news-widget>
     </div>
   </div>
 </div>

@@ -1,18 +1,28 @@
-
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../../typings/angularjs/angular-route.d.ts" />
 /// <reference path="../../../typings/requirejs/require.d.ts" />
 
-export var routeResolver = function () {
+export interface IRouteConfig {
+  setBaseDirectories(viewsDirectory: string, controllersDirectory: string);
+  getControllersDirectory() : string;
+  getViewsDirectory() : string;
+}
+
+export interface IRouteResolver {
+  resolve(baseName: string, path: string, controllerAs: string): angular.route.IRoute
+}
+
+var routeResolver = <ng.IServiceProviderFactory>function () {
 
   this.$get = function () {
     return this;
   };
 
-  this.routeConfig = function () {
+  this.routeConfig = <IRouteConfig>function () {
     var viewsDirectory = '',
         controllersDirectory = '',
 
-    setBaseDirectories = function (viewsDir, controllersDir) {
+    setBaseDirectories = function (viewsDir: string, controllersDir: string) {
       viewsDirectory = viewsDir;
       controllersDirectory = controllersDir;
     },
@@ -24,7 +34,7 @@ export var routeResolver = function () {
     getControllersDirectory = function () {
       return controllersDirectory;
     };
-
+      
     return {
       setBaseDirectories: setBaseDirectories,
       getControllersDirectory: getControllersDirectory,
@@ -32,31 +42,31 @@ export var routeResolver = function () {
     };
   }();
 
-  this.route = function (routeConfig) {
-    var resolve = function (baseName, path, controllerAs) {
+  this.route = function (routeConfig: IRouteConfig) {
+    var resolve = function (baseName: string, path: string, controllerAs: string) {
       if (!path) {
         path = '';
       }
 
-      var routeDef: ng.IRoute = {};
-      routeDef.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
-      routeDef.controller = baseName.charAt(0).toUpperCase() + baseName.slice(1) + 'Controller';
+      var route: angular.route.IRoute = {};
+      route.templateUrl = routeConfig.getViewsDirectory() + path + baseName + '.html';
+      route.controller = baseName.charAt(0).toUpperCase() + baseName.slice(1) + 'Controller';
 
       if (controllerAs)  {
-        routeDef.controllerAs = controllerAs;
+        route.controllerAs = controllerAs;
       }
 
-      routeDef.resolve = {
-        load: ['$q', '$rootScope', function ($q, $rootScope) {
+      route.resolve = {
+        load: ['$q', '$rootScope', function ($q: ng.IQService, $rootScope: ng.IScope) {
           var dependencies = [routeConfig.getControllersDirectory() + path + baseName + '.controller.js'];
           return resolveDependencies($q, $rootScope, dependencies);
         }]
       };
 
-      return routeDef;
+      return route;
     },
 
-    resolveDependencies = function ($q, $rootScope, dependencies) {
+    resolveDependencies = function ($q: ng.IQService, $rootScope: ng.IScope, dependencies: string[]) {
       var defer = $q.defer();
       require(dependencies, function () {
         defer.resolve();
@@ -66,7 +76,7 @@ export var routeResolver = function () {
       return defer.promise;
     };
 
-    return {
+    return <IRouteResolver>{
       resolve: resolve
     };
   }(this.routeConfig);
